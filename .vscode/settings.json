@@ -1,0 +1,8 @@
+{
+    "Lua.diagnostics.globals": [
+        "luaunit"        
+    ],    
+    "luaTestAdapter.luaExe": "D:\\Lua\\53\\lua53.exe",
+      
+}
+
