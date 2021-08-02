@@ -6,22 +6,25 @@ function TestNewRetunsDiferentInstances()
     local instance1 = skill.New(10)
     local instance2 = skill.New(24)
 
-    luaunit.assertNotIs(instance1, instance2)
+    luaunit.assertNotIs(instance1, instance2)    
 end
 
-function TestWhenSkillIsAvailableReturnsWeight()
+function TestWhenSkillIsAvailableThenReturnsWeight()
     local spellStub = spellStub.New():SetCanBeCasted(true)
-    local instance1 = skill.New(10, 80, spellStub)  
+    local skill = skill.New(10, 80, spellStub)  
 
-    luaunit.assertEquals(instance1:GetWeight(), 80)
+    luaunit.assertEquals(skill:GetWeight(), 80)
 end
 
 
-function TestWhenSkillIsNotAvailableReturnsWeight()
+function TestWhenSkillIsNotAvailableThenReturnsWeight()
+    -- arrange
     local spellStub = spellStub.New():SetCanBeCasted(false)
-    local instance1 = skill.New(10, 80, spellStub)  
-
-    luaunit.assertEquals(instance1:GetWeight(), 80)
+    local skill = skill.New(10, 80, spellStub)  
+    -- act 
+    local result = skill:GetWeight()
+    -- assert    
+    luaunit.assertEquals(result, 80)
 end
 
 os.exit(luaunit.LuaUnit.run())
